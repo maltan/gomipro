@@ -14,7 +14,7 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password:
+  password: BuLLet0096
   socket: /var/lib/mysql/mysql.sock
 
 development:
@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: gomipro_production
-  username: gomipro
-  password: <%= ENV['GOMIPRO_DATABASE_PASSWORD'] %>
+  username: root
+  password: BuLLet0096 
