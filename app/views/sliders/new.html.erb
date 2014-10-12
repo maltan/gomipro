@@ -13,8 +13,8 @@
       <label for="slideArea" class="col-lg-2 control-label">Slide <font color="red">*</font></label>
       <div class="col-lg-10">
         <textarea class="form-control" rows="3" id="slideArea"></textarea>
-        <span class="help-block">If you check this slide, press 'show' and open slide.
-          <a href="javascript:void(0);" style="float:right;" class="btn btn-success btn-xs">show</a>
+        <span class="help-block">If you check this slide, press 'preview' and open slide.
+          <a href="#" data-toggle="modal" data-target="#preview" style="float:right;" class="btn btn-success btn-xs">preview</a>
         </span>
       </div>
     </div>
@@ -74,3 +74,23 @@
     </div>
   </fieldset>
 </form>
+
+<!-- Preview Modal -->
+<div class="modal fade" id="preview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="myModalLabel">Slide Preview</h4>
+      </div>
+      <div class="modal-body">
+        <div class="disp_slide">
+          <iframe id="disp" src="/display"></iframe>
+        </div> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Load</button>
+      </div>
+    </div>
+  </div>
+</div>
