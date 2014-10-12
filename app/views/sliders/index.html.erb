@@ -1,3 +1,40 @@
-<div class="slide">
-  <iframe src="display"></iframe>
+<%= stylesheet_link_tag "sliders" %>
+
+<div class="disp_slide">
+  <iframe id="disp" src="display"></iframe>
 </div>
+
+<div class="disp_ctrl">
+  <div align="right">
+    <a href="javascript:void(0);" onclick="requestFullScreen();" class="btn btn-success btn-sm">Full Screen</a>
+  </div>
+  <p style="display:inline"><%= link_to "Add Slide", new_slider_path %></p>
+</div>
+
+
+<script>
+  var target = document.getElementById("disp");
+
+  /**
+   * スライドをフルスクリーン化する関数
+   */
+  function requestFullScreen() {
+    if (target.webkitRequestFullscreen) {
+      // chrome, safari, opera
+      target.webkitRequestFullscreen();
+    } else if (target.mozRequestFullScreen) {
+      // firefox
+      target.mozRequestFullScreen();
+    } else if (target.msRequestFullscreen) {
+      // ie
+      target.msRequestFullscreen();
+    } else if (target.requestFullscreen) {
+      // HTML5
+      target.requestFullscreen();
+    } else {
+      alert('Sorry. Your browser is not able to Full Screen.');
+      return;
+    }
+  }
+</script>
+

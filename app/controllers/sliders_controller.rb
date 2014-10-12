@@ -1,5 +1,7 @@
 class SlidersController < ApplicationController
   def index
-    @projects = Slider.all
+  end
+
+  def new
   end
 end
