@@ -10,6 +10,9 @@ class SlidersController < ApplicationController
     set_instance_variables(params[:title])
   end
 
+  def preview
+  end
+
   private
   # スライド情報設定関数
   #
