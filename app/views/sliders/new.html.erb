@@ -1,0 +1,76 @@
+<%= stylesheet_link_tag "sliders" %>
+
+<form class="form-horizontal">
+  <fieldset>
+    <legend>Create Slide</legend>
+    <div class="form-group">
+      <label for="inputTitle" class="col-lg-2 control-label">Title <font color="red">*</font></label>
+      <div class="col-lg-10">
+        <input class="form-control" id="inputTitle" placeholder="Title" type="text">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="slideArea" class="col-lg-2 control-label">Slide <font color="red">*</font></label>
+      <div class="col-lg-10">
+        <textarea class="form-control" rows="3" id="slideArea"></textarea>
+        <span class="help-block">If you check this slide, press 'show' and open slide.
+          <a href="javascript:void(0);" style="float:right;" class="btn btn-success btn-xs">show</a>
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-lg-2 control-label">Share Mode <font color="red">*</font></label>
+      <div class="col-lg-10">
+        <div class="radio">
+          <label>
+            <input name="optionsRadios" id="optionsRadios1" value="public" checked="" type="radio">
+            Public
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input name="optionsRadios" id="optionsRadios2" value="private" type="radio">
+            Private
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+      <div class="col-lg-10">
+        <input class="form-control" id="inputEmail" placeholder="Email" type="text">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="mainTag" class="col-lg-2 control-label">Main Tag <font color="red">*</font></label>
+      <div class="col-lg-10">
+        <select class="form-control" id="mainTag">
+          <option>programs</option>
+          <option>tools</option>
+          <option>systems</option>
+          <option>memos</option>
+          <option>others</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="subTags" class="col-lg-2 control-label">Sub Tags</label>
+      <div class="col-lg-10">
+        <select multiple="" class="form-control" id="subTags">
+          <option>NONE</option>
+          <option>TODO 1</option>
+          <option>TODO 2</option>
+          <option>TODO 3</option>
+          <option>TODO 4</option>
+          <option>TODO 5</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button class="btn btn-default btn-sm">Cancel</button>
+        <button class="btn btn-primary btn-sm" type="submit">Create</button>
+      </div>
+    </div>
+  </fieldset>
+</form>

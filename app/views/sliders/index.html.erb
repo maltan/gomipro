@@ -1,5 +1,9 @@
 <%= stylesheet_link_tag "sliders" %>
 
+<div class="page-header">
+  <h2><%= @title %></h2>
+</div>
+
 <div class="disp_slide">
   <iframe id="disp" src="display"></iframe>
 </div>
@@ -11,6 +15,10 @@
   <p style="display:inline"><%= link_to "Add Slide", new_slider_path %></p>
 </div>
 
+<div class="">
+  <h3>Description</h3>
+  <%= simple_format(@description) %>
+</div>
 
 <script>
   var target = document.getElementById("disp");
