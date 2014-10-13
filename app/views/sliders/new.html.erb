@@ -1,96 +1,67 @@
 <%= stylesheet_link_tag "sliders" %>
 
-<form class="form-horizontal">
-  <fieldset>
-    <legend>Create Slide</legend>
-    <div class="form-group">
-      <label for="inputTitle" class="col-lg-2 control-label">Title <font color="red">*</font></label>
-      <div class="col-lg-10">
-        <input class="form-control" id="inputTitle" placeholder="Title" type="text">
-      </div>
+<%= form_tag '/sliders', {:class => 'form-horizontal'} do %>
+  <legend>Create Slide</legend>
+  <div class="form-group">
+    <label for="inputTitle" class="col-lg-2 control-label">Title <font color="red">*</font></label>
+    <div class="col-lg-10">
+    <%= text_field 'slideinfo', :title, {:class => 'form-control', :id => 'inputTitle'} %>
     </div>
-    <div class="form-group">
-      <label for="slideArea" class="col-lg-2 control-label">Slide <font color="red">*</font></label>
-      <div class="col-lg-10">
-        <textarea class="form-control" rows="3" id="slideArea"></textarea>
-        <span class="help-block">If you check this slide, press 'preview' and open slide.
-          <a href="#" data-toggle="modal" data-target="#preview" style="float:right;" class="btn btn-success btn-xs">preview</a>
-        </span>
-      </div>
+  </div>
+  <div class="form-group">
+    <label for="slideArea" class="col-lg-2 control-label">Slide <font color="red">*</font></label>
+    <div class="col-lg-10">
+      <%= text_area 'slideinfo', :body, {:class => 'form-control', :id => 'slideArea', :row => '3'} %>
+      <span class="help-block">If you check this slide, press 'preview' and open slide.
+        <a href="/sliders/preview" data-toggle="modal" data-target="#myModal" style="float:right;" class="btn btn-success btn-xs">preview</a>
+      </span>
     </div>
-    <div class="form-group">
-      <label class="col-lg-2 control-label">Share Mode <font color="red">*</font></label>
-      <div class="col-lg-10">
-        <div class="radio">
-          <label>
-            <input name="optionsRadios" id="optionsRadios1" value="public" checked="" type="radio">
-            Public
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input name="optionsRadios" id="optionsRadios2" value="private" type="radio">
-            Private
-          </label>
-        </div>
+  </div>
+  <div class="form-group">
+    <label class="col-lg-2 control-label">Share Mode <font color="red">*</font></label>
+    <div class="col-lg-10">
+      <div class="radio">
+        <label>
+          <%= radio_button 'slideinfo', :mode, 'public', {:checked => true, :id => 'optionsRadios1'} %> Public
+        </label>
       </div>
-    </div>
-    <div class="form-group">
-      <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-      <div class="col-lg-10">
-        <input class="form-control" id="inputEmail" placeholder="Email" type="text">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="mainTag" class="col-lg-2 control-label">Main Tag <font color="red">*</font></label>
-      <div class="col-lg-10">
-        <select class="form-control" id="mainTag">
-          <option>programs</option>
-          <option>tools</option>
-          <option>systems</option>
-          <option>memos</option>
-          <option>others</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="subTags" class="col-lg-2 control-label">Sub Tags</label>
-      <div class="col-lg-10">
-        <select multiple="" class="form-control" id="subTags">
-          <option>NONE</option>
-          <option>TODO 1</option>
-          <option>TODO 2</option>
-          <option>TODO 3</option>
-          <option>TODO 4</option>
-          <option>TODO 5</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-lg-10 col-lg-offset-2">
-        <button class="btn btn-default btn-sm">Cancel</button>
-        <button class="btn btn-primary btn-sm" type="submit">Create</button>
-      </div>
-    </div>
-  </fieldset>
-</form>
-
-<!-- Preview Modal -->
-<div class="modal fade" id="preview" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 class="modal-title" id="myModalLabel">Slide Preview</h4>
-      </div>
-      <div class="modal-body">
-        <div class="disp_slide">
-          <iframe id="slide_preview" src="/sliders/preview"></iframe>
-        </div> 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Load</button>
+      <div class="radio">
+        <label>
+          <%= radio_button 'slideinfo', :mode, 'private', {:checked => false, :id => 'optionsRadios2'} %> Private
+        </label>
       </div>
     </div>
   </div>
-</div>
+  <div class="form-group">
+    <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+    <div class="col-lg-10">
+      <%= email_field 'slideinfo', :email, {:class => 'form-control', :id => 'inputEmail'} %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="mainTag" class="col-lg-2 control-label">Main Tag <font color="red">*</font></label>
+    <div class="col-lg-10">
+      <%= select 'slideinfo', :maintag, {'program' => 'program', 'tool' => 'tool', 'system' => 'system', 'memo'=> 'memo', 'other' => 'other'}, {}, {:class => 'form-control', :id => 'mainTag'} %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="subTags" class="col-lg-2 control-label">Sub Tags</label>
+    <div class="col-lg-10">
+      <%= select 'slideinfo', :subtags, {'NONE' => 'NONE', 'TODO1' => 'TODO1', 'TODO2' => 'TODO2', 'TODO3' => 'TODO3', 'TODO4' => 'TODO4'}, {}, {:class => 'form-control', :id => 'subTags', :multiple => ''} %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-10 col-lg-offset-2">
+      <button class="btn btn-default btn-sm">Cancel</button>
+      <button class="btn btn-primary btn-sm" type="submit">Create</button>
+    </div>
+  </div>
+<% end %>
+
+<!-- Preview Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div> <!-- /.modal-content -->
+    </div> <!-- /.modal-dialog -->
+</div> <!-- /.modal -->
