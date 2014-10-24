@@ -1,11 +1,26 @@
-<%= stylesheet_link_tag "sliders" %>
+<%= javascript_include_tag "reveal" %>
+<%= javascript_include_tag "head.min" %>
+<%= stylesheet_link_tag "reveal" %>
+<%= stylesheet_link_tag "reveal-theme/default" %>
 
-<div class="modal-header">
-  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-  <h4 class="modal-title">Slide Preview</h4>
-</div>      <!-- /modal-header -->
-<div class="modal-body">
-<%= @body %>
-</div>      <!-- /modal-body -->
-<div class="modal-footer">
-</div>      <!-- /modal-footer -->
+<!-- START contents -->
+
+<div class="reveal">
+  <div class="slides">
+    <%= @body.html_safe %>
+  </div>
+</div>
+
+<!--  END  contents -->
+
+<script>
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+
+    theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+    transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+  });
+</script>

@@ -1,22 +1,30 @@
 <%= stylesheet_link_tag "sliders" %>
+<%= javascript_include_tag "reveal" %>
+<%= javascript_include_tag "head.min" %>
+<%= stylesheet_link_tag "reveal" %>
+<%= stylesheet_link_tag "reveal-theme/default2" %>
 
-<%= form_tag '/sliders', {:class => 'form-horizontal'} do %>
+<%= form_tag '/sliders', {:class => 'form-horizontal', :name => 'slide-form', :id => 'slide-form', :target => '_blank'} do %>
   <legend>Create Slide</legend>
+
+  <!-- Title -->
   <div class="form-group">
     <label for="inputTitle" class="col-lg-2 control-label">Title <font color="red">*</font></label>
     <div class="col-lg-10">
-    <%= text_field 'slideinfo', :title, {:class => 'form-control', :id => 'inputTitle'} %>
+      <%= text_field 'slideinfo', :title, {:class => 'form-control', :id => 'inputTitle'} %>
     </div>
   </div>
+
+  <!-- Slide -->
   <div class="form-group">
-    <label for="slideArea" class="col-lg-2 control-label">Slide <font color="red">*</font></label>
+    <label for="slide_area" class="col-lg-2 control-label">Slide <font color="red">*</font></label>
     <div class="col-lg-10">
-      <%= text_area 'slideinfo', :body, {:class => 'form-control', :id => 'slideArea', :row => '3'} %>
-      <span class="help-block">If you check this slide, press 'preview' and open slide.
-        <a href="/sliders/preview" data-toggle="modal" data-target="#myModal" style="float:right;" class="btn btn-success btn-xs">preview</a>
-      </span>
+      <%= text_area 'slideinfo', :body, {:class => 'form-control', :id => 'slide_area', :row => '3'} %>
+      <span class="help-block">If you check this slide, press 'preview' and open slide.</span>
     </div>
   </div>
+
+  <!-- Open Mode -->
   <div class="form-group">
     <label class="col-lg-2 control-label">Share Mode <font color="red">*</font></label>
     <div class="col-lg-10">
@@ -32,36 +40,37 @@
       </div>
     </div>
   </div>
+
+  <!-- Address -->
   <div class="form-group">
     <label for="inputEmail" class="col-lg-2 control-label">Email</label>
     <div class="col-lg-10">
       <%= email_field 'slideinfo', :email, {:class => 'form-control', :id => 'inputEmail'} %>
     </div>
   </div>
+
+  <!-- Main Tag -->
   <div class="form-group">
     <label for="mainTag" class="col-lg-2 control-label">Main Tag <font color="red">*</font></label>
     <div class="col-lg-10">
       <%= select 'slideinfo', :maintag, {'program' => 'program', 'tool' => 'tool', 'system' => 'system', 'memo'=> 'memo', 'other' => 'other'}, {}, {:class => 'form-control', :id => 'mainTag'} %>
     </div>
   </div>
+
+  <!-- Sub Tags -->
   <div class="form-group">
     <label for="subTags" class="col-lg-2 control-label">Sub Tags</label>
     <div class="col-lg-10">
       <%= select 'slideinfo', :subtags, {'NONE' => 'NONE', 'TODO1' => 'TODO1', 'TODO2' => 'TODO2', 'TODO3' => 'TODO3', 'TODO4' => 'TODO4'}, {}, {:class => 'form-control', :id => 'subTags', :multiple => ''} %>
     </div>
   </div>
+
+  <!-- Commits -->
   <div class="form-group">
     <div class="col-lg-10 col-lg-offset-2">
       <button class="btn btn-default btn-sm">Cancel</button>
       <button class="btn btn-primary btn-sm" type="submit">Create</button>
+      <button class="btn btn-primary btn-sm" type="submit" name="preview">Preview</button>
     </div>
   </div>
 <% end %>
-
-<!-- Preview Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        </div> <!-- /.modal-content -->
-    </div> <!-- /.modal-dialog -->
-</div> <!-- /.modal -->

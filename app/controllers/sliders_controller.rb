@@ -9,21 +9,17 @@ class SlidersController < ApplicationController
   # Slide新規作成関数
   #
   def create
-    logger.error(params)
-    @slideinfo = params[:slideinfo]
+    if params[:preview]
+      logger.error "hoge"
+      @body = params[:slideinfo][:body]
+      render :template => 'sliders/preview', :layout => false
+    else
+      render :partial => 'share/preview', :layout => false
+    end
   end
 
   def show
     set_instance_variables(params[:title])
-  end
-
-  # Slide作成画面でのプレビュー表示関数
-  #
-  def preview
-    render :layout => nil 
-    @body = params[:body]
-    @body = '[empty]' unless @body
-    logger.error("hoge2 #{@body}")
   end
 
   private

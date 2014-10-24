@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
-  resources :sliders do
-    collection do
-      get  'preview'
-      post 'preview'
-    end
-  end 
+  resources :sliders
   resources :display
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
