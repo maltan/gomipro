@@ -10,8 +10,9 @@ class SlidersController < ApplicationController
   #
   def create
     if params[:preview]
-      logger.error "hoge"
-      @body = params[:slideinfo][:body]
+      logger.error ("preview")
+      @theme = params[:slideinfo][:slide_theme]
+      @body  = params[:slideinfo][:body]
       render :template => 'sliders/preview', :layout => false
     else
       render :partial => 'share/preview', :layout => false

@@ -7,12 +7,17 @@
 
 <div class="reveal">
   <div class="slides">
-    <section>
-test1
-    </section>
-    <section>
+    <section data-markdown
+    data-separator="\n---\n$"
+    data-vertical="\n--\n">
+      <script type="text/template">
+test
+
+---
+
 test2
-   </section>
+      </script>
+    </section>
   </div>
 </div>
 
@@ -35,13 +40,13 @@ test2
     // parallaxBackgroundSize: '2100px 900px',
 
     // Optional libraries used to extend on reveal.js
-    //dependencies: [
-    //  { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-    //  { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-    //  { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-    //  { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-    //  { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-    //  { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-    //]
+    dependencies: [
+      { src: "<%= asset_path 'lib/js/classList.js' %>", condition: function() { return !document.body.classList; } },
+      { src: "<%= asset_path 'plugin/markdown/marked.js' %>", condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: "<%= asset_path 'plugin/markdown/markdown.js' %>", condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: "<%= asset_path 'plugin/highlight/highlight.js' %>", async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: "<%= asset_path 'plugin/zoom-js/zoom.js' %>", async: true, condition: function() { return !!document.body.classList; } },
+      { src: "<%= asset_path 'plugin/notes/notes.js' %>", async: true, condition: function() { return !!document.body.classList; } }
+    ]
   });
 </script>

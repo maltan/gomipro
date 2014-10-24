@@ -15,9 +15,30 @@
     </div>
   </div>
 
+  <!-- Theme -->
+  <div class="form-group">
+    <label for="slide_theme" class="col-lg-2 control-label">Theme <font color="red">*</font></label>
+    <div class="col-lg-10">
+      <%= select 'slideinfo', :slide_theme, {'default' => 'default', 'beige' => 'beige', 'night' => 'night', 'serif' => 'serif', 'simple' => 'simple', 'sky' => 'sky'}, {}, {:class => 'form-control', :id => 'slide_theme'} %>
+    </div>
+  </div>
+
+  <!-- Switch -->
+  <div class="form-group">
+    <label for="switch" class="col-lg-2 control-label">Switch <font color="red">*</font></label>
+    <div class="col-lg-10">
+      <%= select 'slideinfo', :switch, {'default' => 'default', 'cube' => 'cube', 'page' => 'page', 'concave' => 'concave', 'zoom' => 'zoom', 'linear' => 'linear', 'fade' => 'fade', 'none' => 'none'}, {}, {:class => 'form-control', :id => 'switch'} %>
+    </div>
+  </div>
+
   <!-- Slide -->
   <div class="form-group">
     <label for="slide_area" class="col-lg-2 control-label">Slide <font color="red">*</font></label>
+    <div class="col-lg-10">
+      <a href="#" class="btn btn-info btn-xs" onClick="appendPage();">P</a>
+      <a href="#" class="btn btn-info btn-xs" onClick="help();">?</a>
+    </div>
+    <br>
     <div class="col-lg-10">
       <%= text_area 'slideinfo', :body, {:class => 'form-control', :id => 'slide_area', :row => '3'} %>
       <span class="help-block">If you check this slide, press 'preview' and open slide.</span>
@@ -74,3 +95,11 @@
     </div>
   </div>
 <% end %>
+
+<script>
+  function appendPage() {
+    document.getElementById("slide_area").value += "<section>\n-- contents --\n</section>\n";
+  }
+  function help() {
+  }
+</script>

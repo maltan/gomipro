@@ -1,13 +1,17 @@
 <%= javascript_include_tag "reveal" %>
 <%= javascript_include_tag "head.min" %>
 <%= stylesheet_link_tag "reveal" %>
-<%= stylesheet_link_tag "reveal-theme/default" %>
+<%= stylesheet_link_tag "reveal-theme/#{@theme}" %>
 
 <!-- START contents -->
 
 <div class="reveal">
   <div class="slides">
-    <%= @body.html_safe %>
+    <section data-markdown data-separator="^\n---$" data-vertical="^\n>>>$">
+      <script type="text/template">
+        <%= @body.html_safe %>
+      </script>
+    </section>
   </div>
 </div>
 
