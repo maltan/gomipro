@@ -12,6 +12,7 @@ class SlidersController < ApplicationController
     if params[:preview]
       logger.error ("preview")
       @theme = params[:slideinfo][:slide_theme]
+      @trans = params[:slideinfo][:slide_trans]
       @body  = params[:slideinfo][:body]
       render :template => 'sliders/preview', :layout => false
     else
