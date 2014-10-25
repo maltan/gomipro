@@ -26,5 +26,18 @@
 
     theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
     transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+    // Parallax scrolling
+    // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+    // parallaxBackgroundSize: '2100px 900px',
+
+    dependencies: [
+      { src: "<%= asset_path 'lib/js/classList.js' %>", condition: function() { return !document.body.classList; } },
+      { src: "<%= asset_path 'plugin/markdown/marked.js' %>", condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: "<%= asset_path 'plugin/markdown/markdown.js' %>", condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: "<%= asset_path 'plugin/highlight/highlight.js' %>", async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: "<%= asset_path 'plugin/zoom-js/zoom.js' %>", async: true, condition: function() { return !!document.body.classList; } },
+      { src: "<%= asset_path 'plugin/notes/notes.js' %>", async: true, condition: function() { return !!document.body.classList; } }
+    ]
   });
 </script>

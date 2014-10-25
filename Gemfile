@@ -40,6 +40,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'rb-readline'
 gem 'twitter-bootswatch-rails', '~> 3.1.1'
+gem 'twitter-bootswatch-rails-fontawesome', '~> 4.0'
 gem 'twitter-bootswatch-rails-helpers'
 gem 'execjs'
 gem 'less-rails'
